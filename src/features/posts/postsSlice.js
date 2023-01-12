@@ -49,7 +49,6 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
-        // Adding date and reactions
         let min = 1;
         const loadedPosts = action.payload.map((post) => {
           post.date = sub(new Date(), { minutes: min++ }).toISOString();
@@ -70,9 +69,6 @@ const postsSlice = createSlice({
           return 0;
         });
         action.payload.id = sortedPosts[sortedPosts.length - 1].id + 1;
-        // End fix for fake API post IDs
-
-        action.payload.userId = Number(action.payload.userId);
         action.payload.date = new Date().toISOString();
 
         console.log(action.payload);
