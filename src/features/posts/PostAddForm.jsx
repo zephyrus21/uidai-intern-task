@@ -34,11 +34,12 @@ const PostAddForm = () => {
   };
 
   return (
-    <section>
-      <h2>Add a New Post</h2>
-      <form>
+    <section className='m-8 mx-12'>
+      <h2 className='text-3xl '>Add a New Post</h2>
+      <form className='flex flex-col items-start'>
         <label htmlFor='postTitle'>Post Title:</label>
         <input
+          className='border border-red-400 rounded-md mb-4'
           type='text'
           id='postTitle'
           name='postTitle'
@@ -47,12 +48,17 @@ const PostAddForm = () => {
         />
         <label htmlFor='postContent'>Content:</label>
         <textarea
+          className='border border-red-400 rounded-md'
           id='postContent'
           name='postContent'
           value={content}
           onChange={onContentChanged}
         />
-        <button type='button' onClick={onSavePostClicked} disabled={!canSave}>
+        <button
+          className='bg-red-200 p-3 rounded-lg mt-4'
+          type='button'
+          onClick={onSavePostClicked}
+          disabled={!canSave}>
           Save Post
         </button>
       </form>

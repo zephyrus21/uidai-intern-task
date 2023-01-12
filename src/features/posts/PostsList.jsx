@@ -28,10 +28,9 @@ const PostsList = () => {
       .slice()
       .sort((a, b) => b.date.localeCompare(a.date));
     content = orderedPosts.map((post) => (
-      <div key={post.id}>
-        <h3>{post.title}</h3>
-        <p>{post.body.substring(0, 100)}</p>
-        <p className='postCredit'></p>
+      <div key={post.id} className='m-4 p-2 bg-slate-200 rounded-lg'>
+        <h3 className='text-2xl'>{post.title}</h3>
+        <p>{post.body}</p>
       </div>
     ));
   } else if (postStatus === "failed") {
@@ -39,8 +38,8 @@ const PostsList = () => {
   }
 
   return (
-    <section>
-      <h2>Posts</h2>
+    <section className='m-8'>
+      <h2 className='text-3xl m-4'>Posts</h2>
       {content}
     </section>
   );
